@@ -1,15 +1,29 @@
 language: python
-branches: #деплой проекта будет только при изменениях в ветке master
+python:
+  - "3.8"
+  # PyPy versions
+  - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
+# command to install dependencies
+
+branches:
   only:
     - main
 services:
   - docker
 
 before_install:
-  - docker build -t armadik/dash .
-  - docker run -d -p 127.0.0.1:8050:8050 armadik/dash
-  - docker ps -a
+  - python -m pip install --upgrade pip
 
-script:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push armadik/dash
+jobs:
+  include:
+    - stage: "Docker build"
+      name: "Docker build"
+      script:
+        - docker build -t armadik/dash .
+        - docker run -d -p 127.0.0.1:8050:8050 armadik/dash
+        - docker ps -a
+    - stage: "Docker push"
+      name: "Docker push"
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker push armadik/dash
