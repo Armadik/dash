@@ -20,8 +20,6 @@ jobs:
       name: "Docker build"
       script:
         - docker build -t armadik/dash .
-        - docker run -d -p 127.0.0.1:8050:8050 armadik/dash
-        - docker ps -a
     - stage: "Docker push"
       name: "Docker push"
       script:
