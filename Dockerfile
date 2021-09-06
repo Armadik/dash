@@ -5,10 +5,10 @@
 # >> docker build -t dash_test .
 #
 # Run container: 
-# >> docker run -it -p 8050:8050  --name test_nginx18 <images name>
+# >> docker run -it -p 8050:8050  --name dash <images name>
 ###############################################################################
-FROM registry.redhat.io/ubi8/python-38:1-41
-LABEL   maintainer="Armadik"
+FROM python:3.8-slim
+LABEL maintainer="Armadik"
 COPY . /usr/src/app/
 
 WORKDIR /usr/src/app/
