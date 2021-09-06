@@ -1,9 +1,15 @@
 language: python
-
+branches: #деплой проекта будет только при изменениях в ветке master
+  only:
+    - main
 services:
   - docker
 
 before_install:
-  - docker build -t os/dash .
+  - docker build -t armadik/dash .
   - docker run -d -p 127.0.0.1:8050:8050 os/dash
   - docker ps -a
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push armadik/dash
