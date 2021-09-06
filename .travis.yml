@@ -7,7 +7,7 @@ services:
 
 before_install:
   - docker build -t armadik/dash .
-  - docker run -d -p 127.0.0.1:8050:8050 os/dash
+  - docker run -d -p 127.0.0.1:8050:8050 armadik/dash
   - docker ps -a
 
 script:
