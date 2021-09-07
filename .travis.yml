@@ -3,15 +3,10 @@ python:
   - "3.8"
 # command to install dependencies
 before_install:
-  - python -m pip install --upgrade pip
-install:
   - pip install pre-commit
 
-script:
-  - pre-commit install
-  - pre-commit run --all-files
-
 stages:
+  - Pre-commit
   - Docker build
   - Docker push
 
@@ -27,6 +22,10 @@ notifications:
 
 jobs:
   include:
+    - stage: "Pre-commit"
+      script:
+        - pre-commit install
+        - pre-commit run --all-files
     - stage: "Docker build"
       name: "Docker build"
       script:
