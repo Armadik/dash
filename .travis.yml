@@ -8,7 +8,8 @@ install:
   - pip install pre-commit
 
 script:
-  - echo "$TRAVIS_BUILD_ID"
+  - pre-commit install
+  - pre-commit run --all-files
 
 branches:
   only:
