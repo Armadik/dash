@@ -13,13 +13,9 @@ script:
 branches:
   only:
     - main
+
 services:
   - docker
-
-before_install:
-  - python -m pip install --upgrade pip
-  - echo "### test ###"
-  - env
 
 jobs:
   include:
