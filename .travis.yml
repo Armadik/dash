@@ -9,6 +9,7 @@ install:
 
 script:
   - echo "$TRAVIS_BUILD_ID"
+
 branches:
   only:
     - main
@@ -17,6 +18,8 @@ services:
 
 before_install:
   - python -m pip install --upgrade pip
+  - echo "### test ###"
+  - env
 
 jobs:
   include:
