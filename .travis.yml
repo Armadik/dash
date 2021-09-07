@@ -11,12 +11,19 @@ script:
   - pre-commit install
   - pre-commit run --all-files
 
+stages:
+  - Docker build
+  - Docker push
+
 branches:
   only:
     - main
 
 services:
   - docker
+
+notifications:
+  email: false
 
 jobs:
   include:
