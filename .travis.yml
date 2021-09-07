@@ -7,6 +7,8 @@ python:
 install:
   - pip install pre-commit
 
+script:
+  - echo "$TRAVIS_BUILD_ID"
 branches:
   only:
     - main
