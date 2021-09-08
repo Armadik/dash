@@ -1,4 +1,4 @@
-#pre-commit is a tool to perform a predefined set of tasks manually and/or
+# pre-commit is a tool to perform a predefined set of tasks manually and/or
 # automatically before git commits are made.
 #
 # Config reference: https://pre-commit.com/#pre-commit-configyaml---top-level
