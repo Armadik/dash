@@ -8,7 +8,6 @@ before_install:
 stages:
   - Pre-commit
   - Docker build
-  - Docker push
 
 branches:
   only:
@@ -26,12 +25,10 @@ jobs:
       script:
         - pre-commit install
         - pre-commit run --all-files
-    - stage: "Docker build"
+    - stage: "Docker CI"
       name: "Docker build"
       script:
         - docker build -t armadik/dash .
-    - stage: "Docker push"
-      name: "Docker push"
-      script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker push armadik/dash
+
