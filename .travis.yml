@@ -1,3 +1,4 @@
+---
 language: python
 python:
   - "3.8"
@@ -38,8 +39,8 @@ jobs:
       script:
         # Check YAML styling
         - yamllint -c .yamllint.yml -s .travis.yml .yamllint.yml
-        - yamllint -c .yamllint.yml -s $(find . -type f -name "Chart.yaml")
-        - yamllint -c .yamllint.yml -s $(find . -type f -name "values.yaml")
+        # Check helm
+        - helm lint dash/
         # Check Python and Pretty
         - pre-commit install
         - pre-commit run --all-files
