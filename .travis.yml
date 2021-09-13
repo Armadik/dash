@@ -40,7 +40,7 @@ jobs:
         # Check YAML styling
         - yamllint -c .yamllint.yml -s .travis.yml .yamllint.yml
         # Check helm
-        - helm lint dash/
+        - helm lint dash/.
         # Check Python and Pretty
         - pre-commit install
         - pre-commit run --all-files
