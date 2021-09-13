@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "common.names.fullname" . }}
+  labels:  {{- include "dash.labels" . | nindent 4 }}
+  namespace: {{ template "dash.namespace" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "dash.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "dash.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- if .Values.image.pullSecrets }}
+      imagePullSecrets:
+      {{- range .Values.image.pullSecrets }}
+        - name: {{ . }}
+      {{- end}}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository}}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy}}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.readinessProbe.dashInitialDelaySeconds}}
+            timeoutSeconds: {{ .Values.readinessProbe.dashTimeoutSeconds }}
+            periodSeconds: {{ .Values.readinessProbe.dashPeriodSeconds }}
+            successThreshold: {{ .Values.readinessProbe.dashSuccessThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.dashFailureThreshold }}
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.livenessProbe.dashInitialDelaySeconds}}
+            timeoutSeconds: {{ .Values.livenessProbe.dashTimeoutSeconds }}
+            periodSeconds: {{ .Values.livenessProbe.dashPeriodSeconds }}
+            successThreshold: {{ .Values.livenessProbe.dashSuccessThreshold }}
+            failureThreshold: {{ .Values.livenessProbe.dashFailureThreshold }}
+          ports:
+            - name: {{ .Chart.Name }}
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP

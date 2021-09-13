@@ -1,0 +1,11 @@
+apiVersion: v2
+name: dash
+version: 1.0.0
+appVersion: 1.0.0
+description: A Helm chart DASH-custom for Openshift
+type: application
+icon: https://plotly-marketing-website.cdn.prismic.io/plotly-marketing-website/948b6663-9429-4bd6-a4cc-cb33231d4532_logo-plotly.svg
+sources:
+  - https://github.com/Armadik/dash
+maintainers:
+  - name: Armadik

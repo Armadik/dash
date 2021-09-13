@@ -147,3 +147,4 @@ pyvenv.cfg
 
 .idea
 dash
+helm-*
