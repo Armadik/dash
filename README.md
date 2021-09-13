@@ -1,9 +1,5 @@
-<h1 align="center">
-  <a href="https://github.com/armadik/dash">
-    <!-- Please provide path to your logo here -->
-    <img src="docs/images/logo.svg" alt="Logo" width="100" height="100">
-  </a>
-</h1>
+# Dash Openshift Helm Charts
+
 
 <div align="center">
   Dash for Openshift
@@ -35,14 +31,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Support](#support)
-- [Project assistance](#project-assistance)
-- [Contributing](#contributing)
-- [Authors & contributors](#authors--contributors)
-- [Security](#security)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+
 
 </details>
 
@@ -92,64 +81,3 @@
 > **[?]**
 > How does one go about using it?
 > Provide various use cases and code examples here.
-
-## Roadmap
-
-See the [open issues](https://github.com/armadik/dash/issues) for a list of proposed features (and known issues).
-
-- [Top Feature Requests](https://github.com/armadik/dash/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Top Bugs](https://github.com/armadik/dash/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Newest Bugs](https://github.com/armadik/dash/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
-
-## Support
-
-> **[?]**
-> Provide additional ways to contact the project maintainer/maintainers.
-
-Reach out to the maintainer at one of the following places:
-
-- [GitHub issues](https://github.com/armadik/dash/issues/new?assignees=&labels=question&template=04_SUPPORT_QUESTION.md&title=support%3A+)
-- The email which is located [in GitHub profile](https://github.com/armadik)
-
-## Project assistance
-
-If you want to say **thank you** or/and support active development of Dash for Openshift:
-
-- Add a [GitHub Star](https://github.com/armadik/dash) to the project.
-- Tweet about the Dash for Openshift on your Twitter.
-- Write interesting articles about the project on [Dev.to](https://dev.to/), [Medium](https://medium.com/) or personal blog.
-
-Together, we can make Dash for Openshift **better**!
-
-## Contributing
-
-First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
-
-We have set up a separate document containing our [contribution guidelines](docs/CONTRIBUTING.md).
-
-Thank you for being involved!
-
-## Authors & contributors
-
-The original setup of this repository is by [Mikhail R.](https://github.com/armadik).
-
-For a full list of all authors and contributors, check [the contributor's page](https://github.com/armadik/dash/contributors).
-
-## Security
-
-Dash for Openshift follows good practices of security, but 100% security can't be granted in software.
-Dash for Openshift is provided **"as is"** without any **warranty**. Use at your own risk.
-
-_For more info, please refer to the [security](docs/SECURITY.md)._
-
-## License
-
-This project is licensed under the **MIT license**.
-
-See [LICENSE](LICENSE) for more information.
-
-## Acknowledgements
-
-> **[?]**
-> If your work was funded by any organization or institution, acknowledge their support here.
-> In addition, if your work relies on other software libraries, or was inspired by looking at other work, it is appropriate to acknowledge this intellectual debt too.
