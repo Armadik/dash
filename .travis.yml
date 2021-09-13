@@ -1,8 +1,23 @@
 language: python
 python:
   - "3.8"
+
+env:
+  global:
+    - HELM_URL=https://get.helm.sh/helm-v3.7.0-rc.3-linux-amd64.tar.gz
+    - HELM_TGZ=helm-v3.7.0-rc.3-linux-amd64.tar.gz
+
 # command to install dependencies
 before_install:
+  - pip install pre-commit
+install:
+  # Installing Helm
+  - wget -q ${HELM_URL}/${HELM_TGZ}
+  - tar xzfv ${HELM_TGZ}
+  - PATH=`pwd`/linux-amd64/:$PATH
+  - helm init --client-only
+  # Installig pip deps
+  - sudo pip install yamllint=="${YAMLLINT_VERSION}"
   - pip install pre-commit
 
 stages:

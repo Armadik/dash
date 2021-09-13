@@ -1,6 +1,5 @@
 # Dash Openshift Helm Charts
 
-
 <div align="center">
   Dash for Openshift
   <br />
@@ -32,9 +31,6 @@
   - [Installation](#installation)
 - [Usage](#usage)
 
-
-</details>
-
 ---
 
 ## About
@@ -45,17 +41,6 @@
 > What is the purpose of your project?
 > Why did you undertake it?
 > You don't have to answer all the questions - just the ones relevant to your project.
-
-<details>
-<summary>Screenshots</summary>
-<br>
-
-> **[?]**
-> Please provide your screenshots here.
-
-|                               Home Page                               |                               Login Page                               |
-| :-------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img src="docs/images/screenshot.png" title="Home Page" width="100%"> | <img src="docs/images/screenshot.png" title="Login Page" width="100%"> |
 
 </details>
 
