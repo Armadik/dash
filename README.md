@@ -37,7 +37,7 @@
 
 ### Built With
 
-> Build Docker, Helm...
+> Build Docker, Helm, NGINX, LDAP
 
 ## Getting Started
 
