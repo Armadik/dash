@@ -4,7 +4,7 @@ python:
 
 env:
   global:
-    - HELM_URL=https://get.helm.sh/helm-v3.7.0-rc.3-linux-amd64.tar.gz
+    - HELM_URL=https://get.helm.sh
     - HELM_TGZ=helm-v3.7.0-rc.3-linux-amd64.tar.gz
 
 # command to install dependencies
