@@ -15,10 +15,8 @@ install:
   - wget -q ${HELM_URL}/${HELM_TGZ}
   - tar xzfv ${HELM_TGZ}
   - PATH=`pwd`/linux-amd64/:$PATH
-  - helm init --client-only
   # Installig pip deps
-  - sudo pip install yamllint=="${YAMLLINT_VERSION}"
-  - pip install pre-commit
+  - pip install pre-commit yamllint
 
 stages:
   - Pre-commit
