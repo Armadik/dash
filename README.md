@@ -48,8 +48,8 @@
 
 ### Installation
 
-> **[?]**
-> Proceed to describe how to install and get started with the project.
+> 
+> helm upgrade --install dash .
 
 ## Usage
 
