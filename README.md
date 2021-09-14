@@ -48,7 +48,6 @@
 
 ### Installation
 
-> 
 > helm upgrade --install dash .
 
 ## Usage
