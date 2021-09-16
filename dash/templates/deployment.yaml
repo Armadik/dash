@@ -3,7 +3,15 @@ kind: Deployment
 metadata:
   name: {{ template "common.names.fullname" . }}
   labels:  {{- include "dash.labels" . | nindent 4 }}
+    {{- with .Values.podAnnotations }}
+    {{- . | toYaml | nindent 8 }}
+    {{- end }}
   namespace: {{ template "dash.namespace" . }}
+  annotations:
+    {{- /* This lets us autorestart when the secret changes! */}}
+    {{- with .Values.podAnnotations }}
+    {{- . | toYaml | nindent 8 }}
+    {{- end }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -24,24 +32,18 @@ spec:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.repository}}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy}}
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
-          readinessProbe:
-            tcpSocket:
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: {{ .Values.readinessProbe.dashInitialDelaySeconds}}
-            timeoutSeconds: {{ .Values.readinessProbe.dashTimeoutSeconds }}
-            periodSeconds: {{ .Values.readinessProbe.dashPeriodSeconds }}
-            successThreshold: {{ .Values.readinessProbe.dashSuccessThreshold }}
-            failureThreshold: {{ .Values.readinessProbe.dashFailureThreshold }}
           livenessProbe:
-            tcpSocket:
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: {{ .Values.livenessProbe.dashInitialDelaySeconds}}
-            timeoutSeconds: {{ .Values.livenessProbe.dashTimeoutSeconds }}
-            periodSeconds: {{ .Values.livenessProbe.dashPeriodSeconds }}
-            successThreshold: {{ .Values.livenessProbe.dashSuccessThreshold }}
-            failureThreshold: {{ .Values.livenessProbe.dashFailureThreshold }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          readinessProbe:
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          resources:
+          {{- toYaml .Values.resources | nindent 12 }}
           ports:
             - name: {{ .Chart.Name }}
               containerPort: {{ .Values.service.port }}

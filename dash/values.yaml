@@ -2,7 +2,6 @@
 namespaceOverride: ""
 
 image:
-  pullSecrets: ""
   repository: armadik/dash
   tag: latest
   sha: ""
@@ -11,10 +10,10 @@ image:
   # pullSecrets:
   #   - myRegistrKeySecretName
 
-# -- Колличество POD
+# --  POD replica
 replicaCount: 2
 
-# -- Параметры service.yaml
+# -- Parameters service.yaml
 service:
   type: ClusterIP
   port: 8050
@@ -24,31 +23,23 @@ service:
 
 podPortName: dash
 
+podAnnotations: {}
+
+podlabels: {}
+
 # -- Create route
 dashRoute:
   enable: false
 
-# -- Check pod
+# -- Check pod livenessProbe
 livenessProbe:
-  enabled: true
-  dashInitialDelaySeconds: 30
-  dashPeriodSeconds: 10
-  dashTimeoutSeconds: 5
-  dashSuccessThreshold: 1
-  dashFailureThreshold: 2
   initialDelaySeconds: 20
   periodSeconds: 30
   timeoutSeconds: 5
   successThreshold: 1
   failureThreshold: 3
-# -- Параметры проверки готовности контейнера
+# --  Check pod readinessProb
 readinessProbe:
-  enabled: true
-  dashInitialDelaySeconds: 30
-  dashPeriodSeconds: 7
-  dashTimeoutSeconds: 2
-  dashSuccessThreshold: 1
-  dashFailureThreshold: 5
   initialDelaySeconds: 10
   periodSeconds: 30
   timeoutSeconds: 5
@@ -56,10 +47,10 @@ readinessProbe:
   failureThreshold: 3
 
 # -- Ресурсы для POD
-resources: {}
-#  limits:
-#    cpu: 100m
-#    memory: 128Mi
-#  requests:
-#    cpu: 100m
-#    memory: 128Mi
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
