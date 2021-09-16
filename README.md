@@ -53,8 +53,8 @@ oc cli
 The oc login command is the best way to initially set up the OpenShift CLI, and it serves as the entry point for most users.
 
 ```console
-#oc login
-#oc project <project_name>
+oc login
+oc project <project_name>
 ```
 
 ```console
