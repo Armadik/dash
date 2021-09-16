@@ -13,6 +13,7 @@
 <br />
 
 [![Build Status](https://app.travis-ci.com/Armadik/dash.svg?branch=main)](https://app.travis-ci.com/Armadik/dash)
+[![License](https://img.shields.io/github/license/armadik/dash)](https://opensource.org/licenses/MIT)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/armadik/dash/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 </div>
