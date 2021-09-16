@@ -38,21 +38,27 @@
 
 ### Built With
 
-> Build Docker, Helm, NGINX, LDAP
+Build Docker, Helm, NGINX, LDAP
 
 ## Getting Started
 
 ### Prerequisites
 
-> **[?]**
-> What are the project requirements/dependencies?
+Helm => 3
+
+oc cli
 
 ### Installation
+
+The oc login command is the best way to initially set up the OpenShift CLI, and it serves as the entry point for most users.
+
+> oc login
+>
+> oc project <project_name>
 
 > helm upgrade --install dash .
 
 ## Usage
 
-> **[?]**
-> How does one go about using it?
-> Provide various use cases and code examples here.
+[Helm](https://helm.sh) must be installed to use the charts.
+Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
