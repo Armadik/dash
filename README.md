@@ -32,7 +32,7 @@
 
 ## About
 
-> Project for DASH in Openshift...
+Project for DASH in Openshift...
 
 </details>
 
