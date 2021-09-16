@@ -44,7 +44,7 @@ Build Docker, Helm, NGINX, LDAP
 
 ### Prerequisites
 
-Helm => 3
+Helm version 3
 
 oc cli
 
@@ -52,11 +52,14 @@ oc cli
 
 The oc login command is the best way to initially set up the OpenShift CLI, and it serves as the entry point for most users.
 
-> oc login
->
-> oc project <project_name>
+```console
+#oc login
+#oc project <project_name>
+```
 
-> helm upgrade --install dash .
+```console
+helm upgrade --install dash .
+```
 
 ## Usage
 
