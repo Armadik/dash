@@ -18,7 +18,7 @@
 
 </div>
 
-![Web Site System](https://github.com/Armadik/dash/images/dash.gif)
+![Web Site System](https://github.com/Armadik/dash/blob/main/images/dash.gif)
 
 <details open="open">
 <summary>Table of Contents</summary>
