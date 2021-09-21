@@ -18,17 +18,17 @@ A Helm chart DASH-custom for Openshift
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| dashRoute | object | `{"enable":false}` | Create route |
+| dashRoute | object | `{"enable":true}` | Create route |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"armadik/dash"` |  |
 | image.sha | string | `""` |  |
 | image.tag | string | `"latest"` |  |
-| livenessProbe | object | `{"failureThreshold":3,"initialDelaySeconds":20,"periodSeconds":30,"successThreshold":1,"timeoutSeconds":5}` | Check pod livenessProbe |
+| livenessProbe | object | `{"failureThreshold":10,"httpGet":{"path":"/","port":8050},"initialDelaySeconds":60,"timeoutSeconds":30}` | Check pod livenessProbe |
 | namespaceOverride | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podPortName | string | `"dash"` |  |
 | podlabels | object | `{}` |  |
-| readinessProbe | object | `{"failureThreshold":3,"initialDelaySeconds":10,"periodSeconds":30,"successThreshold":1,"timeoutSeconds":5}` | Check pod readinessProb |
+| readinessProbe | object | `{"httpGet":{"path":"/","port":8050}}` | Check pod readinessProb |
 | replicaCount | int | `2` | POD replica |
 | resources | object | `{"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}` | Ресурсы для POD |
 | service | object | `{"annotations":{},"labels":{},"port":8050,"portName":"service","type":"ClusterIP"}` | Parameters service.yaml |

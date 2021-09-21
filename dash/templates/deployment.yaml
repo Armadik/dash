@@ -33,17 +33,11 @@ spec:
           image: {{ .Values.image.repository}}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy}}
           livenessProbe:
-            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
-            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+{{ toYaml .Values.livenessProbe | indent 12 }}
           readinessProbe:
-            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
-            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
-            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+{{ toYaml .Values.readinessProbe | indent 12 }}
           resources:
-          {{- toYaml .Values.resources | nindent 12 }}
+{{- toYaml .Values.resources | nindent 12 }}
           ports:
             - name: {{ .Chart.Name }}
               containerPort: {{ .Values.service.port }}
